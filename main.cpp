@@ -35,9 +35,9 @@ int main () {
 	
 	getcwd(g_szHomeDirectory, FILENAME_MAX); //Sets g_szHomeDirectory
 	
-	if (g_szHomeDirectory[strlen(g_szHomeDirectory)-1] != '\\') //checks for a '/' at the end
+	if (g_szHomeDirectory[strlen(g_szHomeDirectory)-1] != '/') //checks for a '/' at the end
 	{
-		strcat(g_szHomeDirectory, "\\"); //if there isn't a slash, it adds one
+		strcat(g_szHomeDirectory, "/"); //if there isn't a slash, it adds one
 	}
 	printf("%s\n", g_szHomeDirectory);
 	

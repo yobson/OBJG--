@@ -67,7 +67,7 @@ Node* ReadObjectiveC::Input(char* szHomeDirectory, char* szFile, int* pbSuccess)
 
 	// create filename
 	strcpy(szFilename, szHomeDirectory);
-	strcat(szFilename, "Code\\");
+	strcat(szFilename, "Code/");
 	strcat(szFilename, szFile);
 	strcat(szFilename, ".m");
 
@@ -872,7 +872,7 @@ void ReadObjectiveC::addHashCommand(Node** ppCurrent, char* szLeadingWhitespace,
 {
 	Node*	pChild;
 	char	szRestOfLine[10024];
-	char	szFilename[MAX_PATH];
+	char	szFilename[FILENAME_MAX];
 
 	pChild = new Node;
 
@@ -1238,8 +1238,8 @@ void ReadObjectiveC::scanHeaderFileForClasses(char* szFile)
 	/*/ load data
 	HANDLE		hFile;
 	DWORD		dwRead;
-	char		szFilename[MAX_PATH+1];
-	char		szHeaderFilename[MAX_PATH+1];
+	char		szFilename[FILENAME_MAX+1];
+	char		szHeaderFilename[FILENAME_MAX+1];
 	DWORD		iFileSize;
 	char*		szData;
 	
@@ -1258,7 +1258,7 @@ void ReadObjectiveC::scanHeaderFileForClasses(char* szFile)
 
 	// create filename
 	strcpy(szFilename, m_szHomeDirectory);
-	strcat(szFilename, "Code\\");
+	strcat(szFilename, "Code/");
 	strcat(szFilename, szFile);
 	
 	ifstream	hFile (szFilename);

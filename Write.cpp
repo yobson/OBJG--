@@ -57,18 +57,18 @@ void Write::Output(Node* pRoot, char* szHomeDirectory, char* szFile)
 	
 	// create output
 	m_szOutput = NULL;
-	printf("\nDONE 1 %s \n", pRoot);
+
 	this->recurseNode(pRoot, -1);
-	printf("\nDONE 2\n");
+
 	// write it to a file
 	strcpy(szFilename, szHomeDirectory);
-	strcat(szFilename, "Code\\");
+	strcat(szFilename, "Code/");
 	strcat(szFilename, szFile);
 	strcat(szFilename, this->getFileExtension());
-	printf("\nDONE SETUP FILE\n");
+
 	//hFile = CreateFile(szFilename, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL); 
 	remove(szFilename);
-	printf("Deleting: %s", szFilename);
+
 	hFile.open (szFilename, ios::trunc);
 	//printf("\nOpened File\n");
 	hFile << m_szOutput;
